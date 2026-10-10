@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090909" />
+  <meta name="description" content="Arpit Kumar — BBA student, marketing enthusiast, and creative thinker. Explore projects, achievements, and ideas." />
+  <title>Arpit Kumar — Creative Portfolio</title>
+  <style>
+    :root {
+      --bg: #090909; --panel: #121212; --panel2: #171717; --text: #f6f3ec;
+      --muted: #aaa59b; --gold: #d7b56d; --gold2: #f2d99b; --line: rgba(215,181,109,.24);
+      --serif: Georgia, "Times New Roman", serif; --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--text); background: var(--bg); font-family: var(--sans); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .grain { position: fixed; inset: 0; pointer-events: none; opacity: .035; z-index: 5; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .brand { font-weight: 750; letter-spacing: .08em; font-size: .88rem; }
+    .brand span { color: var(--gold); }
+    .navlinks { display:flex; gap: 24px; color: #c7c1b6; font-size: .88rem; }
+    .navlinks a:hover { color: var(--gold2); }
+    .hero { min-height: 83vh; display:grid; grid-template-columns: 1.05fr .95fr; gap: 44px; align-items:center; padding: 64px 0 78px; }
+    .eyebrow { color: var(--gold); letter-spacing: .2em; text-transform: uppercase; font-size: .72rem; font-weight: 700; }
+    h1 { font-size: clamp(3.2rem, 8vw, 6.5rem); line-height: .98; letter-spacing: -.065em; margin: 20px 0; font-weight: 650; }
+    h1 em { color: var(--gold2); font-family: var(--serif); font-weight: 400; }
+    .lead { color: #c2bdb3; max-width: 540px; font-size: 1.05rem; }
+    .actions { display:flex; gap: 13px; flex-wrap:wrap; margin-top: 30px; }
+    .btn { padding: 12px 18px; border: 1px solid var(--gold); border-radius: 3px; font-size: .88rem; font-weight: 650; transition: .2s; }
+    .btn.primary { background: var(--gold); color: #17130b; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(215,181,109,.14); }
+    .visual { min-height: 440px; position:relative; display:grid; place-items:center; overflow:hidden; border:1px solid var(--line); background: radial-gradient(ellipse at 50% 38%, #44351f 0%, #201a12 28%, #11100e 62%, #0b0b0b 100%); }
+    .visual::before { content:""; position:absolute; width:310px; height:420px; border:1px solid rgba(242,217,155,.48); border-radius:50%; transform:rotate(28deg); }
+    .visual::after { content:""; position:absolute; width:240px; height:350px; border:1px solid rgba(242,217,155,.22); border-radius:50%; transform:rotate(-30deg); }
+    .orb { width:185px; height:185px; border-radius:50%; background:radial-gradient(circle at 32% 25%, #fff0bd, #d7b56d 25%, #8b6329 57%, #21180d 76%); box-shadow:0 0 85px rgba(215,181,109,.28); z-index:1; }
+    .visual-label { position:absolute; z-index:2; bottom:24px; left:24px; right:24px; display:flex; justify-content:space-between; color:#d7c9a8; text-transform:uppercase; letter-spacing:.15em; font-size:.65rem; }
+    .scroll { color: var(--muted); font-size:.74rem; margin-top: 42px; letter-spacing:.12em; text-transform:uppercase; }
+    section { padding: 82px 0; border-top:1px solid rgba(255,255,255,.07); }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:34px; }
+    .section-head h2 { margin:8px 0 0; font-size:clamp(2rem, 5vw, 3.5rem); letter-spacing:-.05em; line-height:1.05; }
+    .section-head p { color:var(--muted); max-width:360px; margin:0; font-size:.92rem; }
+    .about-grid { display:grid; grid-template-columns: 1fr 1fr; gap:38px; }
+    .about-copy { color:#c7c1b6; font-size:1.08rem; }
+    .quote { padding:26px; border-left:2px solid var(--gold); background:linear-gradient(110deg,rgba(215,181,109,.09),transparent); font-family:var(--serif); font-size:1.5rem; line-height:1.35; }
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:24px; }
+    .stat { border:1px solid rgba(255,255,255,.09); padding:18px; }
+    .stat strong { display:block; color:var(--gold2); font-size:1.2rem; }
+    .stat span { color:var(--muted); font-size:.78rem; }
+    .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .card { background:var(--panel); border:1px solid rgba(255,255,255,.08); padding:26px; min-height:220px; position:relative; overflow:hidden; transition:.25s; }
+    .card:hover { border-color:var(--line); transform:translateY(-4px); }
+    .card .number { color:var(--gold); font-size:.75rem; letter-spacing:.15em; }
+    .card h3 { margin:20px 0 9px; font-size:1.35rem; letter-spacing:-.03em; }
+    .card p { color:var(--muted); font-size:.92rem; margin:0; }
+    .tag { display:inline-block; margin-top:18px; color:var(--gold2); border:1px solid var(--line); padding:4px 9px; font-size:.72rem; }
+    .skills { display:flex; flex-wrap:wrap; gap:10px; }
+    .skill { padding:11px 15px; border:1px solid rgba(255,255,255,.13); color:#ddd5c5; background:#101010; font-size:.9rem; }
+    .timeline { border-left:1px solid var(--line); padding-left:25px; display:grid; gap:25px; }
+    .timeline-item { position:relative; }
+    .timeline-item::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--gold); position:absolute; left:-30px; top:8px; }
+    .timeline-item h3 { margin:0 0 4px; font-size:1.08rem; }
+    .timeline-item p { margin:0; color:var(--muted); font-size:.9rem; }
+    .contact-box { display:flex; justify-content:space-between; align-items:center; gap:25px; padding:35px; border:1px solid var(--line); background:radial-gradient(ellipse at top right,rgba(215,181,109,.12),transparent 50%),var(--panel); }
+    .contact-box h2 { font-size:clamp(2rem,5vw,3.5rem); line-height:1.05; letter-spacing:-.05em; margin:10px 0; }
+    .contact-box p { color:var(--muted); max-width:500px; }
+    footer { padding:26px 0 38px; color:#77736b; font-size:.8rem; display:flex; justify-content:space-between; gap:15px; }
+    .small-note { color:#817b70; font-size:.78rem; margin-top:20px; }
+    @media (max-width:760px) {
+      .wrap { width:min(100% - 30px, 600px); }
+      .navlinks { gap:12px; font-size:.76rem; }
+      .hero { grid-template-columns:1fr; gap:30px; padding:58px 0; min-height:auto; }
+      .visual { min-height:330px; }
+      .visual::before { width:230px; height:330px; }
+      .visual::after { width:190px; height:280px; }
+      .orb { width:145px; height:145px; }
+      .section-head { display:block; }
+      .section-head p { margin-top:15px; }
+      .about-grid,.cards { grid-template-columns:1fr; }
+      .stats { grid-template-columns:1fr 1fr; }
+      .contact-box { display:block; padding:25px; }
+      .contact-box .btn { display:inline-block; margin-top:12px; }
+      section { padding:62px 0; }
+    }
+    @media (max-width:390px) { .navlinks { gap:8px; } .navlinks a { font-size:.7rem; } h1 { font-size:3.2rem; } }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#home">AK<span>.</span> PORTFOLIO</a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main id="home">
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Business · Marketing · Creativity</div>
+          <h1>Ideas with<br><em>intention.</em></h1>
+          <p class="lead">I'm <strong>Arpit Kumar</strong> — a BBA student interested in marketing, business strategy, and creative problem-solving. I turn observations into ideas and ideas into meaningful work.</p>
+          <div class="actions">
+            <a class="btn primary" href="#work">Explore my work ↗</a>
+            <a class="btn" href="#contact">Let's connect</a>
+          </div>
+          <div class="scroll">↓ &nbsp; Scroll to explore</div>
+        </div>
+        <div class="visual" aria-label="Abstract gold cinematic artwork">
+          <div class="orb"></div>
+          <div class="visual-label"><span>Creative portfolio</span><span>2026 — Present</span></div>
+        </div>
+      </div>
+    </main>
+
+    <section id="about">
+      <div class="section-head">
+        <div><div class="eyebrow">01 / About</div><h2>Curious by nature.<br><em style="font-family:var(--serif);font-weight:400;color:var(--gold2)">Business by mindset.</em></h2></div>
+        <p>A growing collection of ideas, projects, and experiences that shape how I think and create.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>I’m currently pursuing a Bachelor of Business Administration (BBA). I’m especially interested in understanding people, building brands, and creating marketing that feels relevant and memorable.</p>
+          <p>Outside the classroom, I enjoy exploring creative concepts, photography, content, and new business ideas. I value teamwork, curiosity, and learning by doing.</p>
+        </div>
+        <div>
+          <div class="quote">“Good ideas get attention. Thoughtful execution makes them matter.”</div>
+          <div class="stats">
+            <div class="stat"><strong>BBA</strong><span>Undergraduate</span></div>
+            <div class="stat"><strong>Marketing</strong><span>Area of interest</span></div>
+            <div class="stat"><strong>Creative</strong><span>Mindset</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-head">
+        <div><div class="eyebrow">02 / Selected work</div><h2>Projects & ideas.</h2></div>
+        <p>A starting point for case studies, concepts, and practical learning. Add project links or images as they become available.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="number">PROJECT 01</div><h3>Allen Cooper — Marketing Case Study</h3><p>A marketing concept exploring brand positioning, audience appeal, and campaign creativity for a Gen Z audience.</p><span class="tag">Marketing · Case study</span></article>
+        <article class="card"><div class="number">PROJECT 02</div><h3>Business & Innovation Ideas</h3><p>A collection of early-stage ideas focused on solving everyday problems through useful products and thoughtful experiences.</p><span class="tag">Entrepreneurship · Ideation</span></article>
+        <article class="card"><div class="number">PROJECT 03</div><h3>Creative Photography</h3><p>Visual storytelling, composition, and cinematic-inspired frames developed through personal creative exploration.</p><span class="tag">Photography · Visuals</span></article>
+        <article class="card"><div class="number">PROJECT 04</div><h3>College Events & Teamwork</h3><p>Experience supporting college activities, collaborating with peers, and contributing to presentations and events.</p><span class="tag">Collaboration · Events</span></article>
+      </div>
+      <p class="small-note">Note: Project descriptions are introductory summaries. Add verified details, images, and outcomes before using them for formal applications.</p>
+    </section>
+
+    <section id="skills">
+      <div class="section-head">
+        <div><div class="eyebrow">03 / Capabilities</div><h2>What I bring.</h2></div>
+        <p>A mix of business learning, people skills, and creative curiosity.</p>
+      </div>
+      <div class="skills">
+        <span class="skill">Marketing Concepts</span><span class="skill">Brand Thinking</span><span class="skill">Communication</span><span class="skill">Team Collaboration</span><span class="skill">Presentation</span><span class="skill">Creative Thinking</span><span class="skill">Business Research</span><span class="skill">Photography</span><span class="skill">Content Ideas</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div><div class="eyebrow">04 / Experience & recognition</div><h2>Learning by doing.</h2></div>
+        <p>Use this section to show verified milestones and explain what you learned from each experience.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><h3>National-Level Marketing Competition — Winner</h3><p>Marketing case study and campaign concept. Add the official competition name, date, and result details.</p></div>
+        <div class="timeline-item"><h3>College Events & Volunteering</h3><p>Supported event activities and collaborative work. Add event names and responsibilities where relevant.</p></div>
+        <div class="timeline-item"><h3>Bachelor of Business Administration</h3><p>Allenhouse Business School · Kanpur, India. Add your expected graduation year and any relevant coursework.</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <div><div class="eyebrow">05 / Contact</div><h2>Have a good idea?<br><em style="font-family:var(--serif);font-weight:400;color:var(--gold2)">Let's talk.</em></h2><p>I'm open to connecting with people interested in marketing, business, creativity, and collaboration.</p></div>
+        <div class="actions">
+          <a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="btn" href="mailto:your-email@example.com">Email me ↗</a>
+        </div>
+      </div>
+      <p class="small-note">Before publishing, replace the LinkedIn destination and placeholder email with your own public professional links.</p>
+    </section>
+
+    <footer><span>© <span id="year"></span> Arpit Kumar</span><span>Built with curiosity & a little gold.</span></footer>
+  </div>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+  </html>
